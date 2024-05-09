@@ -1,0 +1,9 @@
+@mixin btn {
+  background: $btn-bg-color;
+  text-transform: capitalize;
+  transition: $transition-time;
+
+  &:hover {
+    color: $link-hover-color;
+  }
+}

@@ -1,4 +1,4 @@
-const {src, dest, watch, parallel, series} = require('gulp');
+const { src, dest, watch, parallel, series } = require('gulp');
 
 const scss = require('gulp-sass')(require('sass'));
 const concat = require('gulp-concat');
@@ -13,86 +13,111 @@ const rigger = require('gulp-rigger');
 const rename = require('gulp-rename');
 const htmlmin = require('gulp-htmlmin');
 const changed = require('gulp-changed');
+const gulp = require('gulp');
+const svgSprite = require('gulp-svg-sprite');
 
 
 function images() {
-    return src('app/images/accomodate/**/*.*')
-        .pipe(newer('app/images'))
-        .pipe(webp())
-        .pipe(dest('app/images'))
+	return src('app/images/accomodate/**/*.*')
+		.pipe(newer('app/images'))
+		.pipe(webp())
+		.pipe(dest('app/images'))
 }
 
 function fonts() {
-    return src('app/fonts/accomodate/**/*.*')
-        .pipe(changed('app/fonts', { extension: '.woff2' }))
-        .pipe(ttf2woff2())
-        .pipe(dest('app/fonts'))
+	return src('app/fonts/accomodate/**/*.*')
+		.pipe(changed('app/fonts', { extension: '.woff2' }))
+		.pipe(ttf2woff2())
+		.pipe(dest('app/fonts'))
 }
 
 function pages() {
-    return src('app/**/*.dev.html')
-        .pipe(include({
-            includePaths: 'app/layouts/'
-        }))
-        .pipe(htmlmin({ collapseWhitespace: true }))
-        .pipe(rename(function (path) {
-            path.basename = path.basename.replace(".dev", "");
-            path.extname = ".html";
-        }))
-        .pipe(dest('app'))
-        .pipe(browserSync.stream())
+	return src('app/**/*.dev.html')
+		.pipe(include({
+			includePaths: 'app/layouts/'
+		}))
+		.pipe(htmlmin({ collapseWhitespace: true }))
+		.pipe(rename(function (path) {
+			path.basename = path.basename.replace(".dev", "");
+			path.extname = ".html";
+		}))
+		.pipe(dest('app'))
+		.pipe(browserSync.stream())
 }
 
 function styles() {
-    return src('app/scss/*.scss')
-        .pipe(autoprefixer({overrideBrowserslist: ['last 10 version']}))
-        .pipe(rename({
-            suffix: ".min",
-            extname: ".css"
-        }))
-        .pipe(scss({outputStyle: 'compressed'}))
-        .pipe(dest('app/css'))
-        .pipe(browserSync.stream())
+	return src('app/scss/*.scss')
+		.pipe(autoprefixer({ overrideBrowserslist: ['last 10 version'] }))
+		.pipe(rename({
+			suffix: ".min",
+			extname: ".css"
+		}))
+		.pipe(scss({ outputStyle: 'compressed' }))
+		.pipe(dest('app/css'))
+		.pipe(browserSync.stream())
 }
 
 function scripts() {
-    return src('app/js/accomodate/**/*.js')
-        .pipe(rigger())
-        .pipe(uglify())
-        .pipe(rename({
-            suffix: ".min",
-            extname: ".js"
-        }))
-        .pipe(dest('app/js'))
-        .pipe(browserSync.stream());
+	return src('app/js/accomodate/**/*.js')
+		.pipe(rigger())
+		.pipe(uglify())
+		.pipe(rename({
+			suffix: ".min",
+			extname: ".js"
+		}))
+		.pipe(dest('app/js'))
+		.pipe(browserSync.stream());
 }
 
 function watching() {
-    browserSync.init({
-        server: {
-            baseDir: "app/"
-        }
-    });
-    watch(['app/images/accomodate/**/*.*'], images)
-    watch(['app/fonts/accomodate/**/*.*'], fonts)
-    watch(['app/layouts/**/*.html', 'app/**/*.dev.html'], pages)
-    watch(['app/scss/**/*.scss'], styles)
-    watch(['app/js/accomodate/**/*.js', 'app/js/components/**/*.js'], scripts).on('change', browserSync.reload)
+	browserSync.init({
+		server: {
+			baseDir: "app/"
+		}
+	});
+	watch(['app/images/accomodate/**/*.*'], images)
+	watch(['app/fonts/accomodate/**/*.*'], fonts)
+	watch(['app/layouts/**/*.html', 'app/**/*.dev.html'], pages)
+	watch(['app/scss/**/*.scss'], styles)
+	watch(['app/js/accomodate/**/*.js', 'app/js/components/**/*.js'], scripts).on('change', browserSync.reload)
 }
 
 function building() {
-    return src([
-        'app/images/**/*.*',
-        '!app/images/accomodate/**/*.*',
-        'app/fonts/**/*.*',
-        '!app/fonts/accomodate/**/*.*',
-        'app/**/*.html',
-        '!app/**/*.dev.html',
-        '!app/layouts/**/*.*',
-        'app/css/**/*.css',
-        'app/js/**/*.min.js',
-    ], {base : 'app'})
-        .pipe(dest('dist'))
+	return src([
+		'app/images/**/*.*',
+		'!app/images/accomodate/**/*.*',
+		'app/fonts/**/*.*',
+		'!app/fonts/accomodate/**/*.*',
+		'app/**/*.html',
+		'!app/**/*.dev.html',
+		'!app/layouts/**/*.*',
+		'app/css/**/*.css',
+		'app/js/**/*.min.js',
+	], { base: 'app' })
+		.pipe(dest('dist'))
+}
+
+const config = {
+	shape: {
+		dimension: {
+			maxWidth: 32,
+			maxHeight: 32
+		},
+		spacing: {
+			padding: 10
+		}
+	},
+	mode: {
+		symbol: {
+			sprite: './app/images/sprite.svg'
+		}
+	}
+};
+
+function svg() {
+	return src('app/images/*.svg')
+		.pipe(svgSprite(config))
+		.pipe(dest('app/svg'));
 }
 
 
@@ -103,6 +128,7 @@ exports.pages = pages;
 exports.building = building;
 exports.scripts = scripts;
 exports.watching = watching;
+exports.svg = svg;
 
 exports.build = series(images, fonts, scripts, styles, pages, building);
 exports.default = parallel(styles, fonts, images, scripts, pages, watching);

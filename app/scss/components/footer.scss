@@ -1,0 +1,80 @@
+.footer {
+  padding-top: 119px;
+  padding-bottom: 65px;
+  background-color: $footer-bg-color;
+}
+
+.footer .logo {
+  font-size: 38px;
+  margin-bottom: 119px;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 198px;
+  margin-bottom: 364px;
+}
+
+.footer-info-title {
+  margin-bottom: 60px;
+  font-size: 28px;
+}
+
+.footer-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+
+.footer-info-link {
+  font-family: "Poppins", sans-serif;
+  transition: $transition-time;
+
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+  }
+}
+
+.footer-info-list-icon {
+  fill: $icon-color;
+}
+
+.company-inofmation-wrap {
+  width: 100%;
+  max-width: 351px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-info-item {
+  display: flex;
+  align-items: center;
+
+  &.phone {
+    gap: 30px;
+  }
+  &.mail {
+    gap: 33px;
+  }
+  &.address {
+    gap: 38px;
+    text-align: start;
+  }
+}
+
+.join-team {
+  display: block;
+  margin-bottom: 28px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.footer-info-txt {
+  max-width: 330px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}

@@ -1,0 +1,175 @@
+@import "../mixins/mixins.scss";
+
+.header {
+  padding-top: 77px;
+}
+
+.logo {
+  display: block;
+  margin-bottom: 27px;
+  color: $logo-color;
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 63px;
+}
+
+.burger-menu {
+  fill: $icon-color;
+}
+
+.get-protection-btn {
+  width: 143px;
+  height: 35px;
+  font-size: 14px;
+  @include btn;
+}
+
+.hero-title {
+  max-width: 365px;
+  margin-bottom: 14px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 28px;
+}
+
+.hero-txt {
+  margin-bottom: 63px;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+.hero-img-wrap {
+  margin-bottom: 63px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 1, 249, 0.4) 0%,
+    rgba(0, 21, 49, 1) 70%
+  );
+}
+
+.hero-btn-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 39px;
+  margin-bottom: 120px;
+}
+
+.learn-more-btn {
+  width: 292px;
+  height: 73px;
+  font-size: 24px;
+  @include btn;
+}
+
+.get-started-btn {
+  width: 292px;
+  height: 73px;
+  font-size: 24px;
+  border: 3px solid transparent;
+  background-color: transparent;
+  border-image: $btn-bg-color;
+  border-image-slice: 1;
+  transition: $transition-time;
+
+  &:hover {
+    color: $link-hover-color;
+  }
+}
+
+.hero-photo-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 104px;
+  margin-bottom: 102px;
+}
+
+.hero-photo-item {
+  position: relative;
+  width: 100%;
+  max-width: 334px;
+  height: 228px;
+  padding-top: 114px;
+  border-radius: 15px;
+  background-color: $card-primary-bg-color;
+}
+
+.hero-photo-item-wrap {
+  position: absolute;
+  top: -42px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 134px;
+  height: 134px;
+  border-radius: 50%;
+  background-color: $photo-color;
+}
+
+.hero-photo-item-txt {
+  display: inline-block;
+  width: 250px;
+  font-size: 24px;
+  text-transform: capitalize;
+}
+
+.hero-icon-section {
+  padding-top: 99px;
+  padding-bottom: 99px;
+  background-color: $icon-section-bg-color;
+}
+
+.hero-icon-section-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 58px;
+}
+
+.hero-icon-section-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 17px;
+}
+
+.hero-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+
+  &.first {
+    background-color: $icon-1-wrap-bg-color;
+  }
+  &.second {
+    background-color: $icon-2-wrap-bg-color;
+  }
+  &.third {
+    background-color: $icon-3-wrap-bg-color;
+  }
+  &.fourth {
+    background-color: $icon-4-wrap-bg-color;
+  }
+}
+
+.hero-icon {
+  fill: $icon-color;
+}
+
+.hero-icon-count {
+  display: block;
+  font-size: 38px;
+  color: $hero-icon-count;
+}
+
+.hero-icon-descr {
+  display: block;
+  font-size: 14px;
+}

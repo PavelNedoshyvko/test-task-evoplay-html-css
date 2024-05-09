@@ -1,0 +1,109 @@
+@import "../mixins/mixins.scss";
+
+.contact-us-fist-part {
+  padding-top: 118px;
+  padding-bottom: 119px;
+  background-color: $contact-us-bg-color;
+}
+
+.contact-us-title {
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  font-size: 28px;
+}
+
+.contact-us-txt {
+  max-width: 387px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 59px;
+  font-family: "Poppins", sans-serif;
+}
+
+.contact-us-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.contact-us-card-photo-wrap {
+  width: 156px;
+  height: 156px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 9px;
+  border-radius: 50%;
+  background-color: $photo-color;
+  box-shadow: 0px 0px 100px 45px rgba(0, 17, 255, 0.32);
+}
+
+.contact-us-card-title {
+  width: 183px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 34px;
+}
+
+.contact-us-second-part {
+  padding-top: 139px;
+  padding-bottom: 284px;
+}
+
+.contact-us-connect-title {
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 13px;
+  font-size: 28px;
+}
+
+.contact-us-connect-txt {
+  max-width: 396px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 38px;
+  font-family: "Poppins", sans-serif;
+}
+
+.contact-us-connect-photo-wrap {
+  width: 100%;
+  max-width: 358px;
+  // padding-top: 100%;
+  height: 358px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 61px;
+  border-radius: 50%;
+  background-color: $photo-color;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+}
+
+.form-input {
+  width: 100%;
+  max-width: 391px;
+  height: 62px;
+  padding-left: 23px;
+  padding-right: 16px;
+  background-color: $input-bg-color;
+  text-align: start;
+
+  &.textarea {
+    height: 197px;
+    padding-top: 17px;
+  }
+}
+
+.form-submit-btn {
+  width: 100%;
+  max-width: 391px;
+  height: 62px;
+  @include btn;
+}

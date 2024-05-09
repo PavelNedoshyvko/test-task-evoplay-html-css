@@ -1,22 +1,15 @@
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  min-height: 100vh;
+  background-color: #001531;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  text-align: center;
 }
 
-main {
-    flex-grow: 1;
+.container {
+  max-width: 430px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
 }
-
-.container{
-    max-width: 1200px;
-    width: 100%;
-    padding: 0 15px;
-}
-
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
