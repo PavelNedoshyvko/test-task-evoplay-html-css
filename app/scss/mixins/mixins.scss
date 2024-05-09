@@ -1,9 +1,16 @@
+@mixin viewport-desktop {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
 @mixin btn {
   background: $btn-bg-color;
   text-transform: capitalize;
   transition: $transition-time;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: $link-hover-color;
   }
 }

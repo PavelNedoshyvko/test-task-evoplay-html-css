@@ -2,11 +2,21 @@
   padding-top: 119px;
   padding-bottom: 65px;
   background-color: $footer-bg-color;
+
+  @include viewport-desktop {
+    padding-top: 86px;
+    padding-bottom: 72px;
+  }
 }
 
 .footer .logo {
   font-size: 38px;
   margin-bottom: 119px;
+
+  @include viewport-desktop {
+    margin-bottom: 69px;
+    text-align: start;
+  }
 }
 
 .footer-info {
@@ -14,6 +24,13 @@
   flex-direction: column;
   gap: 198px;
   margin-bottom: 364px;
+
+  @include viewport-desktop {
+    flex-direction: row;
+    gap: 95px;
+    margin-bottom: 208px;
+    text-align: start;
+  }
 }
 
 .footer-info-title {

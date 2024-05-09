@@ -1,5 +1,9 @@
 .services {
   padding-bottom: 242px;
+
+  @include viewport-desktop {
+    padding-bottom: 215px;
+  }
 }
 
 .services-title {
@@ -8,6 +12,12 @@
   margin-right: auto;
   margin-bottom: 15px;
   font-size: 28px;
+
+  @include viewport-desktop {
+    max-width: 800px;
+    margin-bottom: 0;
+    font-size: 38px;
+  }
 }
 
 .services-txt {
@@ -16,12 +26,28 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 103px;
+
+  @include viewport-desktop {
+    min-width: 950px;
+    margin-bottom: 100px;
+    font-size: 24px;
+  }
 }
 
 .services-card-list {
   display: flex;
   flex-direction: column;
   gap: 137px;
+
+  @include viewport-desktop {
+    flex-direction: row;
+    gap: 30px;
+    background: radial-gradient(
+      circle,
+      rgb(53, 53, 255) 0%,
+      rgba(0, 21, 49, 0.5) 40%
+    );
+  }
 }
 
 .services-card-item {
@@ -29,6 +55,8 @@
   width: 100%;
   max-width: 400px;
   height: 416px;
+  margin-left: auto;
+  margin-right: auto;
 
   &::before {
     content: "";
@@ -67,6 +95,12 @@
   border-radius: 50%;
   background-color: $photo-color;
   z-index: 1;
+
+  @include viewport-desktop {
+    top: -55px;
+    width: 180px;
+    height: 180px;
+  }
 }
 
 .services-card-title {
@@ -105,7 +139,8 @@
     fill: currentColor;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: $icon-color;
   }
 }

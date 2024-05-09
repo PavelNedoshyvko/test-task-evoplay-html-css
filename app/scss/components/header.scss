@@ -8,6 +8,39 @@
   display: block;
   margin-bottom: 27px;
   color: $logo-color;
+
+  @include viewport-desktop {
+    margin-bottom: 0;
+    font-size: 26px;
+  }
+}
+
+.nav .list {
+  display: none;
+
+  @include viewport-desktop {
+    display: flex;
+    gap: 34px;
+  }
+}
+
+.nav {
+  & .link {
+    font-size: 14px;
+    transition: color $transition-time;
+
+    &:hover,
+    &:focus {
+      color: $link-hover-color;
+    }
+  }
+
+  @include viewport-desktop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 99px;
+  }
 }
 
 .nav-wrap {
@@ -15,9 +48,20 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 63px;
+
+  @include viewport-desktop {
+    margin-bottom: 0;
+    gap: 34px;
+  }
 }
 
-.burger-menu {
+.burger-menu-btn {
+  @include viewport-desktop {
+    display: none;
+  }
+}
+
+.burger-menu-icon {
   fill: $icon-color;
 }
 
@@ -26,6 +70,18 @@
   height: 35px;
   font-size: 14px;
   @include btn;
+
+  @include viewport-desktop {
+    width: 177px;
+    height: 39px;
+    font-size: 16px;
+  }
+}
+
+.hero-first-part-wrap {
+  @include viewport-desktop {
+    position: relative;
+  }
 }
 
 .hero-title {
@@ -34,12 +90,28 @@
   margin-left: auto;
   margin-right: auto;
   font-size: 28px;
+
+  @include viewport-desktop {
+    max-width: 628px;
+    text-align: start;
+    font-size: 48px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 6px;
+  }
 }
 
 .hero-txt {
   margin-bottom: 63px;
   font-family: "Poppins", sans-serif;
   text-align: center;
+
+  @include viewport-desktop {
+    max-width: 628px;
+    margin-bottom: 112px;
+    text-align: start;
+    font-size: 24px;
+  }
 }
 
 .hero-img-wrap {
@@ -49,6 +121,19 @@
     rgba(0, 1, 249, 0.4) 0%,
     rgba(0, 21, 49, 1) 70%
   );
+
+  @include viewport-desktop {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-bottom: 0;
+  }
+}
+
+.hero-img {
+  @include viewport-desktop {
+    min-width: 550px;
+  }
 }
 
 .hero-btn-wrap {
@@ -57,6 +142,12 @@
   align-items: center;
   gap: 39px;
   margin-bottom: 120px;
+
+  @include viewport-desktop {
+    flex-direction: row;
+    gap: 27px;
+    margin-bottom: 90px;
+  }
 }
 
 .learn-more-btn {
@@ -74,9 +165,10 @@
   background-color: transparent;
   border-image: $btn-bg-color;
   border-image-slice: 1;
-  transition: $transition-time;
+  transition: color $transition-time;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: $link-hover-color;
   }
 }
@@ -87,6 +179,13 @@
   align-items: center;
   gap: 104px;
   margin-bottom: 102px;
+
+  @include viewport-desktop {
+    flex-direction: row;
+    justify-content: center;
+    gap: 44px;
+    margin-bottom: 107px;
+  }
 }
 
 .hero-photo-item {
@@ -108,6 +207,12 @@
   height: 134px;
   border-radius: 50%;
   background-color: $photo-color;
+
+  @include viewport-desktop {
+    top: -53px;
+    width: 150px;
+    height: 150px;
+  }
 }
 
 .hero-photo-item-txt {
@@ -128,6 +233,11 @@
   flex-direction: column;
   align-items: center;
   gap: 58px;
+
+  @include viewport-desktop {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .hero-icon-section-item {
@@ -135,6 +245,11 @@
   flex-direction: column;
   align-items: center;
   gap: 17px;
+
+  @include viewport-desktop {
+    flex-direction: row;
+    gap: 20px;
+  }
 }
 
 .hero-icon-wrap {
@@ -167,9 +282,17 @@
   display: block;
   font-size: 38px;
   color: $hero-icon-count;
+
+  @include viewport-desktop {
+    text-align: start;
+  }
 }
 
 .hero-icon-descr {
   display: block;
   font-size: 14px;
+
+  @include viewport-desktop {
+    font-size: 14px;
+  }
 }

@@ -1,26 +1,45 @@
 <header class="header">
   <div class="container">
-    <a href="./index.html" class="logo">Secure Nexus</a>
-    <div class="nav-wrap">
-      <button
-        type="button"
-        class="js-open-menu"
-        type="button"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
-        <svg class="burger-menu" width="53" height="35">
-          <use href="./images/icons.svg#icon-burger-menu"></use>
-        </svg>
-      </button>
-      <button type="button" class="get-protection-btn">
-        Get Protection Now
-      </button>
-    </div>
+    <nav class="nav">
+      <a href="./index.html" class="logo">Secure Nexus</a>
+      <div class="nav-wrap">
+        <button
+          type="button"
+          class="burger-menu-btn js-open-menu"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg class="burger-menu-icon" width="53" height="35">
+            <use href="./images/icons.svg#icon-burger-menu"></use>
+          </svg>
+        </button>
+        <ul class="list">
+          <li>
+            <a class="link" href="./index.html">Home</a>
+          </li>
+          <li>
+            <a class="link" href="#about-us">About Us</a>
+          </li>
+          <li>
+            <a class="link" href="#services">Services</a>
+          </li>
+          <li>
+            <a class="link" href="#footer">Resource</a>
+          </li>
+          <li>
+            <a class="link" href="#contact-us">Contact</a>
+          </li>
+        </ul>
+        <button type="button" class="get-protection-btn">
+          Get Protection Now
+        </button>
+      </div>
+    </nav>
   </div>
   <section class="hero">
     <div class="container">
-      <div>
+      <div class="hero-first-part-wrap">
         <h1 class="hero-title">
           Empowering Your Digital World with Advanced Security Solutions
         </h1>
@@ -30,12 +49,17 @@
           integrity.
         </p>
         <div class="hero-img-wrap">
-          <img src="./images/hero.webp" alt="Hero image" />
+          <img
+            class="hero-img"
+            src="./images/hero.webp"
+            alt="Hero image"
+            width="400"
+          />
         </div>
-      </div>
-      <div class="hero-btn-wrap">
-        <button type="button" class="learn-more-btn">Learn More</button>
-        <button type="button" class="get-started-btn">Get Started</button>
+        <div class="hero-btn-wrap">
+          <button type="button" class="learn-more-btn">Learn More</button>
+          <button type="button" class="get-started-btn">Get Started</button>
+        </div>
       </div>
       <ul class="hero-photo-list">
         <li class="hero-photo-item">
@@ -55,7 +79,7 @@
       </ul>
     </div>
     <div class="hero-icon-section">
-      <ul class="hero-icon-section-list">
+      <ul class="hero-icon-section-list container">
         <li class="hero-icon-section-item">
           <div class="hero-icon-wrap first">
             <svg class="hero-icon" width="50" height="46">
